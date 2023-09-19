@@ -6,7 +6,7 @@ Boolean matrices are matrices containing only 1s and 0s as entries. Matrix multi
 ![alt text](https://github.com/panoskazantzis/4-russians-algorithm/blob/main/assets/boolean_multiplication.png?raw=true)
 
 
-The Four-Russians algoerithm computes the product of two n x n boolean matrices in time O(n^3/log n) by a certain strategy of pre-computing union of rows and later use a table look-up to them. The process is explained in more detail below:
+The Four-Russians algorithm computes the product of two n x n boolean matrices in time O(n^3/log n) by a certain strategy of pre-computing union of rows and later use a table look-up to them. Specifically, we first divide the matrices into [log n] blocks, the first matrix "A" by columns and the second "B" by rows. In case 'n mod logn > 0' we can just fill in spaces with zeros. Then we can take the product A X B by computing all Ai x Bi products and add them together.
 
 The pseudo-code for the algorithm is given below:
 ![alt text](https://github.com/panoskazantzis/4-russians-algorithm/blob/main/assets/4-russians-algo.png?raw=true)
