@@ -10,3 +10,6 @@ The Four-Russians algorithm computes the product of two n x n boolean matrices i
 
 The pseudo-code for the algorithm is given below:
 ![alt text](https://github.com/panoskazantzis/4-russians-algorithm/blob/main/assets/4-russians-algo.png?raw=true)
+
+Graphs provide an example of how boolean matrix multiplication can be used in practice. Consider a directed graph G = (V, E), we can form the graph G* = (V, E*) which contains the same nodes as graph G but one additional edge for any pair of nodes in G that are connected (not just the direct neighbors). Graph G* is called the transitive closure of G.
+Consider the following example:
