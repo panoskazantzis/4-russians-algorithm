@@ -15,7 +15,6 @@ def four_russians(matrix_A, matrix_B):
     ----------
     matrix_A : np.array
         np.array representing a boolean matrix containing 1s and 0s.
-
     matrix_B : np.array
         np.array representing a boolean matrix containing 1s and 0s.
 
