@@ -6,7 +6,7 @@ from itertools import product
 
 
 def four_russians(matrix_A, matrix_B):
-	"""
+    """
 	Matrix boolean multiplication.
 
 	Computes the boolean product of two matrices A and B using the 4 Russians algorithm.
