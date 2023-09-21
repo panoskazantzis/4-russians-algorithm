@@ -7,24 +7,24 @@ from itertools import product
 
 def four_russians(matrix_A, matrix_B):
     """
-	Matrix boolean multiplication.
+    Matrix boolean multiplication.
 
-	Computes the boolean product of two matrices A and B using the 4 Russians algorithm.
+    Computes the boolean product of two matrices A and B using the 4 Russians algorithm.
 
-	Parameters
-	----------
-	matrix_A : np.array
-		np.array representing a boolean matrix containing 1s and 0s.
+    Parameters
+    ----------
+    matrix_A : np.array
+        np.array representing a boolean matrix containing 1s and 0s.
 
-	matrix_B : np.array
-		np.array representing a boolean matrix containing 1s and 0s.
+    matrix_B : np.array
+        np.array representing a boolean matrix containing 1s and 0s.
 
-	Returns
-	-------
-	matrix_C : np.array
-		np.array representing the boolean product of matrix_A and matrix_b.
-	"""
-	n = len(matrix_A)
+    Returns
+    -------
+    matrix_C : np.array
+        np.array representing the boolean product of matrix_A and matrix_b.
+    """
+    n = len(matrix_A)
     lg = int(math.log2(n))
 
     #if necessary fill with zeros
