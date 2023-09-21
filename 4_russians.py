@@ -63,52 +63,52 @@ def four_russians(matrix_A, matrix_B):
     return matrix_C
 
 
-    def all_row_sums(matrix):
-        """
-        Calculate all sum vectors of a matrix's rows.
+def all_row_sums(matrix):
+    """
+    Calculate all sum vectors of a matrix's rows.
 
-        Calculates all sum vectors of all possible combinations of a matrix's rows.
+    Calculates all sum vectors of all possible combinations of a matrix's rows.
 
-        Parameters
-        ----------
-        matrix : np.array
-            np.array representing any matrix.
+    Parameters
+    ----------
+    matrix : np.array
+        np.array representing any matrix.
 
-        Returns
-        -------
-        all_sums : dict
-            dictionary containing all sum vectors of all possible combinations of given matrix.
-        """
-        combinations = list(product([0, 1], repeat=len(matrix)))
-        # calculate all possible row sums of matrix
-        all_sums = {
-            combo: boolean_sum(matrix[[i for i, value in enumerate(combo) if value == 1]]) 
-            for combo in combinations
-        }
+    Returns
+    -------
+    all_sums : dict
+        dictionary containing all sum vectors of all possible combinations of given matrix.
+    """
+    combinations = list(product([0, 1], repeat=len(matrix)))
+    # calculate all possible row sums of matrix
+    all_sums = {
+        combo: boolean_sum(matrix[[i for i, value in enumerate(combo) if value == 1]]) 
+        for combo in combinations
+    }
 
-        return all_sums
+    return all_sums
 
 
-    def boolean_sum(vectors):
-        """
-        Calculate boolean sum.
+def boolean_sum(vectors):
+    """
+    Calculate boolean sum.
 
-        Calculate the sum of all given vectors
+    Calculate the sum of all given vectors
 
-        Parameters
-        ----------
-        vectors : list of lists
-            List of lists containing the vectors to perform boolean addition on.
+    Parameters
+    ----------
+    vectors : list of lists
+        List of lists containing the vectors to perform boolean addition on.
 
-        Returns
-        -------
-        bool_sum : list
-            List representing the sum vector of all given vectors.
-        """
-        # sum across columns
-        bool_sum = np.sum(vectors, axis=0)
-        # transform to boolean addition
-        bool_sum[bool_sum >= 1] = 1
+    Returns
+    -------
+    bool_sum : list
+        List representing the sum vector of all given vectors.
+    """
+    # sum across columns
+    bool_sum = np.sum(vectors, axis=0)
+    # transform to boolean addition
+    bool_sum[bool_sum >= 1] = 1
 
-        return bool_sum
+    return bool_sum
 
