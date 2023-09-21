@@ -61,3 +61,29 @@ def four_russians(matrix_A, matrix_B):
     matrix_C[matrix_C >= 1] = 1
     
     return matrix_C
+
+
+
+    def all_row_sums(matrix):
+    """
+    Calculate all sum vectors of a matrix's rows.
+
+    Calculates all sum vectors of all possible combinations of a matrix's rows.
+
+    Parameters
+    ----------
+    matrix : np.array
+        np.array representing any matrix.
+
+    Returns
+    -------
+    all_sums : dict
+        dictionary containing all sum vectors of all possible combinations of given matrix.
+    """
+    combinations = list(product([0, 1], repeat=len(matrix)))
+    # calculate all possible row sums of matrix
+    all_sums = {
+        combo: boolean_sum(matrix, [i for i, value in enumerate(combo) if value == 1]) 
+        for combo in combinations
+    }
+    return all_sums
