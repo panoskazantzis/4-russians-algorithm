@@ -134,7 +134,7 @@ def transitive_closure_graph(graph):
     trans_graph : np.array
         np.array representing the edges of the transitive closure graph of the given graph.
     trans_clos : np.array
-        np.array representing the adjancency matrix of the transitive closure graph of the given graph.
+        np.array representing the adjacency matrix of the transitive closure graph of the given graph.
     """
     # Flatten the array representing the graph
     flat_arr = graph.flatten()
@@ -142,8 +142,8 @@ def transitive_closure_graph(graph):
     # Find the unique elements ~ nodes
     nodes = np.unique(flat_arr)
     
-    # compute the adjancency matrix
-    adj_mtrx = get_adjancency_matrix(graph, nodes)
+    # compute the adjacency matrix
+    adj_mtrx = get_adjacency_matrix(graph, nodes)
     
     # Get the dimensions of the array
     n, m = adj_mtrx.shape
@@ -163,18 +163,18 @@ def transitive_closure_graph(graph):
     for i in range(min(n, m)):
         trans_clos[i, i] = 0
         
-    # from adjancnency matrix to graph format
+    # from adjacency matrix to graph format
     graph = get_graph(trans_clos, nodes)
         
     return graph, trans_clos
 
 
-def get_adjancency_matrix(graph, nodes):
+def get_adjacency_matrix(graph, nodes):
     """
-    Compute the adjancency matrix of given graph.
+    Compute the adjacency matrix of given graph.
 
     Takes as input a graph in np.array format containing the edges of a graph and
-    computes the adjancency matrix.
+    computes the adjacency matrix.
 
     Parameters
     ----------
@@ -186,12 +186,12 @@ def get_adjancency_matrix(graph, nodes):
     Returns
     -------
     adj_mtrx : np.array
-        np.array representing the adjancency matrix of the graph.
+        np.array representing the adjacency matrix of the graph.
     """
-    # initialize adjancency matrix
+    # initialize adjacency matrix
     adj_mtrx = np.array([[0]*len(nodes)]*len(nodes))
     
-    # compute adjancency matrix
+    # compute adjacency matrix
     for i_edge in range(len(graph)):
         node_start = np.where(nodes == graph[i_edge][0])[0][0]
         node_end = np.where(nodes == graph[i_edge][1])[0][0]
@@ -202,22 +202,22 @@ def get_adjancency_matrix(graph, nodes):
 
 def get_graph(adj_mtrx, nodes):
     """
-    Compute the graph in edges format out of an adjancency matrix.
+    Compute the graph in edges format out of an adjacency matrix.
 
-    Takes as input an adjancency matrix in np.array format and computes its 
+    Takes as input an adjacency matrix in np.array format and computes its 
     representation as a np.array containing the edges.
 
     Parameters
     ----------
     adj_mtrx : np.array
-        np.array representing the adjancency matrix of a graph.
+        np.array representing the adjacency matrix of a graph.
     nodes : list
         The labels of the nodes of the graph.
 
     Returns
     -------
     graph : np.array
-        np.array representing the edges of the graph of the adjancency matrix given.
+        np.array representing the edges of the graph of the adjacency matrix given.
     """
     # Get the dimensions of the array
     n, m = adj_mtrx.shape
