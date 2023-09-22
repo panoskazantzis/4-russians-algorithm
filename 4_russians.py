@@ -34,7 +34,7 @@ def four_russians(matrix_A, matrix_B):
             matrix_A, matrix_A.shape[1], np.array([[0]*n]*add_count), axis=1,
         )
         # add rows of zeros
-        matrix_B = np.vstack((B, np.array([[0]*n]*add_count)))
+        matrix_B = np.vstack((matrix_B, np.array([[0]*n]*add_count)))
         
     # Boolean matrix multiplication using 4 Russians approach
     matrix_C = np.array([[0]*n]*n)
