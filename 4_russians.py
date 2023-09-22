@@ -113,52 +113,52 @@ def boolean_sum(vectors):
     return bool_sum
 
 
-    def transitive_closure_graph(graph):
-        """
-        Computes the transitive closure matrix of a given graph.
+def transitive_closure_graph(graph):
+    """
+    Computes the transitive closure matrix of a given graph.
 
-        Takes as input any graph as a np.array containing the edges
-        e.g., 
-            np.array([[0, 1], [0, 2], [1, 3], ... ])
+    Takes as input any graph as a np.array containing the edges
+    e.g., 
+        np.array([[0, 1], [0, 2], [1, 3], ... ])
 
-        and computes the transitive closure graph in the same format
-        using matrix multiplication with the 4 Russians method.
+    and computes the transitive closure graph in the same format
+    using matrix multiplication with the 4 Russians method.
     
-        Parameters
-        ----------
-        graph : np.array
-            np.array representing the edges of a graph.
+    Parameters
+    ----------
+    graph : np.array
+        np.array representing the edges of a graph.
     
-        Returns
-        -------
-        trans_graph : np.array
-            np.array representing the edges of the transitive closure graph of the given graph.
-        trans_clos : np.array
-            np.array representing the adjancency matrix of the transitive closure graph of the given graph.
-        """
-        # compute the adjancency matrix
-        adj_mtrx = get_adjancency_matrix(graph)
+    Returns
+    -------
+    trans_graph : np.array
+        np.array representing the edges of the transitive closure graph of the given graph.
+    trans_clos : np.array
+        np.array representing the adjancency matrix of the transitive closure graph of the given graph.
+    """
+    # compute the adjancency matrix
+    adj_mtrx = get_adjancency_matrix(graph)
     
-        # Get the dimensions of the array
-        n, m = adj_mtrx.shape
+    # get the dimensions of the array
+    n, m = adj_mtrx.shape
     
-        # we asssume each node in the graph is connected to itself
-        # Change the diagonal elements to 1
-        for i in range(min(n, m)):
-            adj_mtrx[i, i] = 1
+    # we asssume each node in the graph is connected to itself
+    # Change the diagonal elements to 1
+    for i in range(min(n, m)):
+        adj_mtrx[i, i] = 1
         
-        # A^n = A^(n-1) x A is the transitive closure graph of A
-        # initialize the transitive closure graph
-        trans_clos = adj_mtrx.copy()
-        for i in range(2, n):
-            trans_clos = four_russians(trans_clos, adj_mtrx)
+    # A^n = A^(n-1) x A is the transitive closure graph of A
+    # initialize the transitive closure graph
+    trans_clos = adj_mtrx.copy()
+    for i in range(2, n):
+        trans_clos = four_russians(trans_clos, adj_mtrx)
         
-        # remove diagonal assumption
-        for i in range(min(n, m)):
-            trans_clos[i, i] = 0
+    # remove diagonal assumption
+    for i in range(min(n, m)):
+        trans_clos[i, i] = 0
         
-        # from adjancnency matrix to graph format
-        trans_graph = get_graph(trans_clos)
+    # from adjancnency matrix to graph format
+    trans_graph = get_graph(trans_clos)
         
-        return trans_graph, trans_clos
+    return trans_graph, trans_clos
 
